@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { Imprint } from "@/components/imprint"
 import { SiteHeader } from "@/components/site-header"
 import { About } from "@/components/sections/about"
+import { Why } from "@/components/sections/about"
 import { Contact } from "@/components/sections/contact"
 import { Intro } from "@/components/sections/intro"
 import { Playlist } from "@/components/sections/playlist"
@@ -31,6 +32,7 @@ function Home() {
       <main>
         <Intro />
         <About />
+        <Why />
         <Playlist />
         <Portrait />
         <Contact />
