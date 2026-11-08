@@ -1,7 +1,7 @@
 // Zentrale Inhalte der Seite – Texte, Dateien und Links hier anpassen.
 // Mediendateien liegen in public/assets/ und werden über asset("<datei>") referenziert.
 
-// Berücksichtigt den Unterpfad auf GitHub Pages (/PortfolioMomo/)
+// Relativ zur Seite, damit es unter jedem GitHub-Pages-Unterpfad funktioniert
 const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURIComponent(file)}`
 
 export const site = {

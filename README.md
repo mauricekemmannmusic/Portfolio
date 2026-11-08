@@ -34,7 +34,7 @@ Audio (MP3) und Bilder kommen nach `public/assets/` – Originale (WAV, große V
 ## Deployment
 
 Jeder Push auf `main` baut die Seite und veröffentlicht sie über GitHub Actions auf GitHub Pages:
-https://mlangenhan.github.io/PortfolioMomo/
+https://mauricekemmannmusic.github.io/Portfolio/
 
 Einmalig nötig: Repo → Settings → Pages → Source: **GitHub Actions**.
 
