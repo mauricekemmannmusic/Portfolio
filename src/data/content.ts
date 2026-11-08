@@ -1,5 +1,8 @@
 // Zentrale Inhalte der Seite – Texte, Dateien und Links hier anpassen.
-// Mediendateien liegen in public/assets/ und werden als /assets/<datei> referenziert.
+// Mediendateien liegen in public/assets/ und werden über asset("<datei>") referenziert.
+
+// Berücksichtigt den Unterpfad auf GitHub Pages (/PortfolioMomo/)
+const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${file}`
 
 export const site = {
   name: "Maurice Kemmann",
@@ -14,16 +17,16 @@ export const about = [
 export type Track = { title: string; src: string }
 
 export const tracks: Track[] = [
-  { title: "Colorful Life", src: "/assets/colorful-life.mp3" },
-  { title: "Exploring Worlds", src: "/assets/exploring-worlds.mp3" },
-  { title: "Joining Battle", src: "/assets/joining-battle.mp3" },
-  { title: "Space Invaders", src: "/assets/space-invaders.mp3" },
-  { title: "Stowaway – Solar Flare (Rescore)", src: "/assets/stowaway-solar-flare-rescore.mp3" },
-  { title: "Time for Inventions", src: "/assets/time-for-inventions.mp3" },
+  { title: "Colorful Life", src: asset("colorful-life.mp3") },
+  { title: "Exploring Worlds", src: asset("exploring-worlds.mp3") },
+  { title: "Joining Battle", src: asset("joining-battle.mp3") },
+  { title: "Space Invaders", src: asset("space-invaders.mp3") },
+  { title: "Stowaway – Solar Flare (Rescore)", src: asset("stowaway-solar-flare-rescore.mp3") },
+  { title: "Time for Inventions", src: asset("time-for-inventions.mp3") },
 ]
 
 export const portrait = {
-  src: "/assets/maurice.jpg",
+  src: asset("maurice.jpg"),
   alt: "Portrait von Maurice Kemmann",
 }
 
@@ -60,7 +63,8 @@ export const contact = {
   ],
 }
 
-export const video = {
+// Landevideo im Hintergrund des Startbereichs (YouTube)
+export const heroVideo = {
   title: "Sanctuary",
-  src: "/assets/sanctuary.mp4",
+  youtubeId: "wBpkdkJhLEQ",
 }

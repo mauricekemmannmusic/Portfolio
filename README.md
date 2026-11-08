@@ -25,6 +25,19 @@ src/
   index.css      # Tailwind + shadcn Theme-Variablen
 ```
 
+## Inhalte & Medien
+
+Alle Texte, Tracks, Links und das YouTube-Landevideo stehen in `src/data/content.ts`.
+Audio (MP3) und Bilder kommen nach `public/assets/` – Originale (WAV, große Videos) nicht ins Repo legen
+(GitHub-Limit: 100 MB pro Datei).
+
+## Deployment
+
+Jeder Push auf `main` baut die Seite und veröffentlicht sie über GitHub Actions auf GitHub Pages:
+https://mlangenhan.github.io/PortfolioMomo/
+
+Einmalig nötig: Repo → Settings → Pages → Source: **GitHub Actions**.
+
 Weitere shadcn-Komponenten hinzufügen:
 
 ```bash

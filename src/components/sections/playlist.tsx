@@ -5,6 +5,7 @@ import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { tracks } from "@/data/content"
+import { announceAudioStart, onOtherAudioStart } from "@/lib/audio-bus"
 import { cn } from "@/lib/utils"
 
 function formatTime(seconds: number) {
@@ -24,6 +25,8 @@ export function Playlist() {
   const [failed, setFailed] = useState(false)
 
   const track = tracks[index]
+
+  useEffect(() => onOtherAudioStart("playlist", () => audioRef.current?.pause()), [])
 
   useEffect(() => {
     if (!shouldAutoplay.current) return
@@ -53,7 +56,10 @@ export function Playlist() {
         ref={audioRef}
         src={track.src}
         preload="metadata"
-        onPlay={() => setIsPlaying(true)}
+        onPlay={() => {
+          setIsPlaying(true)
+          announceAudioStart("playlist")
+        }}
         onPause={() => setIsPlaying(false)}
         onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
         onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}

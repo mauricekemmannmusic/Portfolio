@@ -5,12 +5,11 @@ const navItems = [
   { href: "#musik", label: "Musik" },
   { href: "#portfolio", label: "Portfolio" },
   { href: "#kontakt", label: "Kontakt" },
-  { href: "#video", label: "Video" },
 ]
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-background/60 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4">
         <a href="#" className="font-mono text-sm font-semibold tracking-widest">
           MK

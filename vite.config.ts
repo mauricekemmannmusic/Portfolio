@@ -5,6 +5,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Repo-Name als Unterpfad für GitHub Pages (https://mlangenhan.github.io/PortfolioMomo/)
+  base: '/PortfolioMomo/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

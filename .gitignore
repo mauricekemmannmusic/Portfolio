@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Unkomprimierte Audio-/Video-Originale nicht ins Repo
+*.wav
+assets/
