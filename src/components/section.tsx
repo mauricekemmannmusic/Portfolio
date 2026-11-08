@@ -12,7 +12,7 @@ type SectionProps = {
 
 export function Section({ id, index, title, className, children }: SectionProps) {
   return (
-    <section id={id} className={cn("mx-auto max-w-5xl scroll-mt-14 px-4 py-20 sm:py-28", className)}>
+    <section id={id} className={cn("mx-auto max-w-5xl scroll-mt-20 px-4 py-20 sm:py-24", className)}>
       <div className="mb-10 flex items-baseline gap-4 border-b pb-4">
         <span className="font-mono text-sm text-muted-foreground">{index}</span>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{title}</h2>

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ImageOff } from "lucide-react"
+import { ImageBrokenIcon as ImageOff } from "@phosphor-icons/react"
 
 import { portrait, site } from "@/data/content"
 

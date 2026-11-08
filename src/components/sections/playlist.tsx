@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Pause, Play, SkipBack, SkipForward } from "lucide-react"
+import { PauseIcon as Pause, PlayIcon as Play, SkipBackIcon as SkipBack, SkipForwardIcon as SkipForward } from "@phosphor-icons/react"
 
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"

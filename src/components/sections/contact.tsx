@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin } from "lucide-react"
+import { ArrowUpRightIcon as ArrowUpRight, EnvelopeSimpleIcon as Mail, MapPinIcon as MapPin } from "@phosphor-icons/react"
 
 import { Section } from "@/components/section"
 import { contact } from "@/data/content"
