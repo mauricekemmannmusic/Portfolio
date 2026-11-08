@@ -5,7 +5,7 @@ import { contact } from "@/data/content"
 
 export function Contact() {
   return (
-    <Section id="kontakt" index="04" title="Kontakt">
+    <Section id="contact" index="03" title="Contact">
       <div className="grid gap-10 sm:grid-cols-2">
         <div className="space-y-4">
           <a

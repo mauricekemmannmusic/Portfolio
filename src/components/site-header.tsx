@@ -3,10 +3,9 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { id: "about", label: "Über mich" },
-  { id: "musik", label: "Musik" },
-  { id: "portfolio", label: "Portfolio" },
-  { id: "kontakt", label: "Kontakt" },
+  { id: "about", label: "About" },
+  { id: "music", label: "Music" },
+  { id: "contact", label: "Contact" },
 ]
 
 // Markiert den Abschnitt, der gerade die Mitte des Bildschirms kreuzt (B9: aktueller Punkt sichtbar)
@@ -38,12 +37,12 @@ export function SiteHeader() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-4">
       <nav
-        aria-label="Hauptnavigation"
+        aria-label="Main navigation"
         className="pointer-events-auto flex animate-rise-in items-center gap-1 rounded-full border border-white/10 bg-black/50 p-1 backdrop-blur-xl"
       >
         <a
           href="#top"
-          aria-label="Nach oben"
+          aria-label="Back to top"
           className="caption-3 rounded-full px-3 py-2 font-mono tracking-widest text-white transition-colors duration-300 ease-base outline-none hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/40"
         >
           MK

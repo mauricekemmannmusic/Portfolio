@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { ArrowDownIcon, SpeakerHighIcon, SpeakerLowIcon, SpeakerSlashIcon } from "@phosphor-icons/react"
+import {
+  ArrowDownIcon,
+  MusicNotesIcon,
+  SpeakerHighIcon,
+  SpeakerLowIcon,
+  SpeakerSlashIcon,
+} from "@phosphor-icons/react"
 
 import { Slider } from "@/components/ui/slider"
 import { heroVideo, site } from "@/data/content"
@@ -111,7 +117,7 @@ export function Intro() {
       {/* Flache Abdunklung für Lesbarkeit (keine Verläufe im Hintergrund, B4) */}
       <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
 
-      <div className="relative mx-auto w-full max-w-5xl px-4 pt-24 pb-16 sm:pb-24">
+      <div className="relative mx-auto w-full max-w-5xl px-4 pt-24 pb-24">
         <p className="caption-1 mb-4 animate-rise-in text-white/70" style={reveal(0)}>
           {site.affiliation}
         </p>
@@ -136,11 +142,11 @@ export function Intro() {
             className="button-md inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-black transition-[background-color,transform] duration-300 ease-base outline-none hover:bg-white/85 focus-visible:ring-4 focus-visible:ring-white/40 active:scale-[0.98]"
           >
             {muted ? <SpeakerSlashIcon className="size-5" /> : <SpeakerHighIcon className="size-5" />}
-            {muted ? "Musik einschalten" : "Musik ausschalten"}
+            {muted ? "Turn on music" : "Turn off music"}
           </button>
           <a
             href="#about"
-            aria-label="Zum Inhalt scrollen"
+            aria-label="Scroll to content"
             className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-[color,background-color,transform] duration-300 ease-base outline-none hover:bg-white/10 hover:text-white focus-visible:ring-4 focus-visible:ring-white/40 active:scale-[0.98]"
           >
             <ArrowDownIcon className="size-4" />
@@ -154,7 +160,7 @@ export function Intro() {
                 max={100}
                 step={1}
                 onValueChange={([v]) => changeVolume(v)}
-                aria-label="Lautstärke"
+                aria-label="Volume"
                 className="w-24 sm:w-32 [&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-track]]:bg-white/20"
               />
               <span className="caption-5 w-7 text-right font-mono text-white/70 tabular-nums">{volume}</span>
@@ -162,6 +168,13 @@ export function Intro() {
           )}
         </div>
       </div>
+      <p
+        className="caption-4 absolute right-4 bottom-4 flex animate-rise-in items-center gap-2 text-white/60"
+        style={reveal(4)}
+      >
+        <MusicNotesIcon className="size-4" />
+        {heroVideo.credit}
+      </p>
     </section>
   )
 }

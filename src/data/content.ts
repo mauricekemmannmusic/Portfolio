@@ -6,14 +6,10 @@ const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURICo
 
 export const site = {
   name: "Maurice Kemmann",
-  role: "Komponist · Game & Film Music",
-  affiliation: "Student an der Music Cube Academy",
-  tagline: "Ich komponiere Musik für Games, Filme und Welten, die man hören kann.",
+  role: "Composer · Game & Film Music",
+  affiliation: "Student at Music Cube Academy",
+  tagline: "I compose music for games, films and worlds you can hear.",
 }
-
-// Großer Satz, dessen Wörter sich beim Scrollen nacheinander aufhellen (Beispieltext).
-// Jeder Eintrag ist eine eigene Zeile.
-export const statement = ["Jede Welt hat", "ihren eigenen Klang.", "Ich suche so lange,", "bis er stimmt."]
 
 export const about = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -33,35 +29,12 @@ export const tracks: Track[] = [
 
 export const portrait = {
   src: asset("maurice.jpg"),
-  alt: "Portrait von Maurice Kemmann",
+  alt: "Portrait of Maurice Kemmann",
 }
-
-export type Project = { title: string; category: string; year: string; description: string }
-
-export const projects: Project[] = [
-  {
-    title: "Projekt 1",
-    category: "Game Soundtrack",
-    year: "2026",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    title: "Projekt 2",
-    category: "Rescore",
-    year: "2025",
-    description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    title: "Projekt 3",
-    category: "Kurzfilm",
-    year: "2024",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-  },
-]
 
 export const contact = {
   email: "kontakt@example.com",
-  location: "Deutschland",
+  location: "Germany",
   links: [
     { label: "YouTube", href: "#" },
     { label: "Instagram", href: "#" },
@@ -73,4 +46,14 @@ export const contact = {
 export const heroVideo = {
   title: "Sanctuary",
   youtubeId: "wBpkdkJhLEQ",
+  credit: "Sanctuary · Music by me",
+}
+
+// Impressum (Angaben gemäß § 5 DDG). Platzhalter in {{…}} durch echte Daten ersetzen.
+export const imprint = {
+  name: "Maurice Kemmann",
+  street: "{{Street and house number}}",
+  city: "{{Postal code and city}}",
+  country: "Germany",
+  email: contact.email,
 }

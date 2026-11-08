@@ -51,7 +51,7 @@ export function Playlist() {
   const step = (dir: 1 | -1) => selectTrack((index + dir + tracks.length) % tracks.length)
 
   return (
-    <Section id="musik" index="02" title="Musik">
+    <Section id="music" index="02" title="Music">
       <audio
         ref={audioRef}
         src={track.src}
@@ -71,23 +71,23 @@ export function Playlist() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="min-w-0">
             <p className="text-sm text-muted-foreground">
-              {failed ? "Datei nicht gefunden" : isPlaying ? "Läuft gerade" : "Ausgewählt"}
+              {failed ? "File not found" : isPlaying ? "Now playing" : "Selected"}
             </p>
             <p className="truncate text-xl font-semibold">{track.title}</p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={() => step(-1)} aria-label="Vorheriger Track">
+            <Button variant="ghost" size="icon" onClick={() => step(-1)} aria-label="Previous track">
               <SkipBack />
             </Button>
             <Button
               size="icon"
               className="size-12 rounded-full"
               onClick={() => selectTrack(index)}
-              aria-label={isPlaying ? "Pause" : "Abspielen"}
+              aria-label={isPlaying ? "Pause" : "Play"}
             >
               {isPlaying ? <Pause className="size-5" /> : <Play className="size-5" />}
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => step(1)} aria-label="Nächster Track">
+            <Button variant="ghost" size="icon" onClick={() => step(1)} aria-label="Next track">
               <SkipForward />
             </Button>
           </div>
@@ -103,7 +103,7 @@ export function Playlist() {
               if (audioRef.current) audioRef.current.currentTime = v
               setTime(v)
             }}
-            aria-label="Position im Track"
+            aria-label="Track position"
           />
           <span className="w-10 text-right">{formatTime(duration)}</span>
         </div>
