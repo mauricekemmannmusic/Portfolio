@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import { ArrowDownIcon, SpeakerHighIcon, SpeakerSlashIcon } from "@phosphor-icons/react"
+import { ArrowDownIcon, SpeakerHighIcon, SpeakerLowIcon, SpeakerSlashIcon } from "@phosphor-icons/react"
 
+import { Slider } from "@/components/ui/slider"
 import { heroVideo, site } from "@/data/content"
 import { announceAudioStart, onOtherAudioStart } from "@/lib/audio-bus"
 import { cn } from "@/lib/utils"
@@ -33,6 +34,7 @@ const reveal = (step: number) => ({ animationDelay: `${150 + step * 100}ms` })
 export function Intro() {
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const [muted, setMuted] = useState(true)
+  const [volume, setVolume] = useState(70)
   // Das Vorschaubild bleibt sichtbar, bis YouTube meldet, dass das Video wirklich läuft.
   // Ist Einbetten blockiert, sieht man so das Standbild statt einer schwarzen Fläche.
   const [videoPlaying, setVideoPlaying] = useState(false)
@@ -59,13 +61,13 @@ export function Intro() {
         ytCommand(iframeRef.current, "mute")
         setMuted(true)
       }),
-    []
+    [],
   )
 
   function toggleSound() {
     if (muted) {
       ytCommand(iframeRef.current, "unMute")
-      ytCommand(iframeRef.current, "setVolume", [100])
+      ytCommand(iframeRef.current, "setVolume", [volume])
       ytCommand(iframeRef.current, "playVideo")
       announceAudioStart("hero-video")
     } else {
@@ -74,8 +76,17 @@ export function Intro() {
     setMuted(!muted)
   }
 
+  function changeVolume(value: number) {
+    setVolume(value)
+    ytCommand(iframeRef.current, "setVolume", [value])
+  }
+
   return (
-    <section id="top" aria-label="Intro" className="relative flex min-h-svh items-end overflow-hidden bg-black">
+    <section
+      id="top"
+      aria-label="Intro"
+      className="relative flex min-h-svh items-end overflow-hidden bg-black"
+    >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <img
           src={poster}
@@ -93,7 +104,7 @@ export function Intro() {
           onLoad={() => ytPost(iframeRef.current, { event: "listening", id: 1, channel: "widget" })}
           className={cn(
             "absolute top-1/2 left-1/2 h-[max(100%,56.25vw)] w-[max(100%,177.78svh)] -translate-x-1/2 -translate-y-1/2 scale-110 border-0 opacity-0 transition-opacity duration-700 ease-base",
-            videoPlaying && "opacity-100"
+            videoPlaying && "opacity-100",
           )}
         />
       </div>
@@ -101,9 +112,12 @@ export function Intro() {
       <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
 
       <div className="relative mx-auto w-full max-w-5xl px-4 pt-24 pb-16 sm:pb-24">
+        <p className="caption-1 mb-4 animate-rise-in text-white/70" style={reveal(0)}>
+          {site.affiliation}
+        </p>
         <h1
-          className="heading-1 max-w-[680px] animate-rise-in bg-linear-to-r from-white to-[#9B9B9B] bg-clip-text tracking-tighter text-transparent sm:text-8xl lg:text-9xl"
-          style={reveal(0)}
+          className="heading-1 max-w-[680px] animate-rise-in bg-linear-to-r from-white to-[#9B9B9B] bg-clip-text tracking-tight text-transparent"
+          style={reveal(1)}
         >
           {site.name.split(" ").map((part) => (
             <span key={part} className="block">
@@ -111,10 +125,10 @@ export function Intro() {
             </span>
           ))}
         </h1>
-        <p className="title-1 mt-6 max-w-[680px] animate-rise-in text-white/80" style={reveal(1)}>
+        <p className="title-1 mt-4 max-w-[680px] animate-rise-in text-white/80" style={reveal(2)}>
           {site.tagline}
         </p>
-        <div className="mt-8 flex animate-rise-in items-center gap-3" style={reveal(2)}>
+        <div className="mt-8 flex animate-rise-in flex-wrap items-center gap-3" style={reveal(3)}>
           <button
             type="button"
             onClick={toggleSound}
@@ -131,6 +145,21 @@ export function Intro() {
           >
             <ArrowDownIcon className="size-4" />
           </a>
+          {!muted && (
+            <div className="flex h-10 animate-in items-center gap-3 rounded-full border border-white/20 bg-black/30 px-4 backdrop-blur duration-500 ease-base fade-in slide-in-from-left-2">
+              <SpeakerLowIcon className="size-4 shrink-0 text-white/70" />
+              <Slider
+                value={[volume]}
+                min={0}
+                max={100}
+                step={1}
+                onValueChange={([v]) => changeVolume(v)}
+                aria-label="Lautstärke"
+                className="w-24 sm:w-32 [&_[data-slot=slider-range]]:bg-white [&_[data-slot=slider-thumb]]:border-white [&_[data-slot=slider-track]]:bg-white/20"
+              />
+              <span className="caption-5 w-7 text-right font-mono text-white/70 tabular-nums">{volume}</span>
+            </div>
+          )}
         </div>
       </div>
     </section>

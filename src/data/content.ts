@@ -7,8 +7,13 @@ const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURICo
 export const site = {
   name: "Maurice Kemmann",
   role: "Komponist · Game & Film Music",
+  affiliation: "Student an der Music Cube Academy",
   tagline: "Ich komponiere Musik für Games, Filme und Welten, die man hören kann.",
 }
+
+// Großer Satz, dessen Wörter sich beim Scrollen nacheinander aufhellen (Beispieltext).
+// Jeder Eintrag ist eine eigene Zeile.
+export const statement = ["Jede Welt hat", "ihren eigenen Klang.", "Ich suche so lange,", "bis er stimmt."]
 
 export const about = [
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",

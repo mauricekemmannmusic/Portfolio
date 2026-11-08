@@ -5,6 +5,7 @@ import { Intro } from "@/components/sections/intro"
 import { Playlist } from "@/components/sections/playlist"
 import { Portfolio } from "@/components/sections/portfolio"
 import { Portrait } from "@/components/sections/portrait"
+import { Statement } from "@/components/sections/statement"
 import { site } from "@/data/content"
 
 const year = new Date().getFullYear()
@@ -23,6 +24,7 @@ function App() {
         <Intro />
         <About />
         <Playlist />
+        <Statement />
         <Portrait />
         <Portfolio />
         <Contact />

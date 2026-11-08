@@ -26,6 +26,7 @@ export function Portrait() {
       <div className="space-y-2 pb-2">
         <p className="text-3xl font-semibold tracking-tight sm:text-4xl">{site.name}</p>
         <p className="text-muted-foreground">{site.role}</p>
+        <p className="text-muted-foreground">{site.affiliation}</p>
       </div>
     </section>
   )
