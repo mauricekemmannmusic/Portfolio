@@ -13,10 +13,9 @@ export const site = {
 
 export const about = [
   "My name is Maurice Kemmann, I am born in 2005 and im from a small town in western germany. I started making music at the end of 2023 when I had no idea what to do with my life. I started out with makind EDM beats and because I have always loved how to train your dragon and its score i soon started to get into cinematic music.",
-  "Why game music? I have been plaing games since I was kid and started with my Nintendo and a Wii. When I got older I got my first PC and since then I have continued gaming with my favourites being e.g. Elden ring, Sea of Thieves and also tactical shooters like Valorant. THats why I want to combine both making music and gaming.",
-]
+  ]
 
-export const why = [ "Video games have been a part of my life for as long as I can remember. Growing up with Nintendo and the Wii, I eventually moved on to PC gaming, where my love for games only continued to grow. Some of my favourite games include Elden Ring and Sea of Thieves, as well as tactical shooters like Valorant. What fascinates me most about game music is its ability to bring worlds to life, create emotions and make memorable moments even more impactful. Combining my passion for gaming with my love for composing music is what drives me to pursue a career in game audio."
+export const why = [ "Video games have been a part of my life for as long as I can remember. Growing up with Nintendo and the Wii, I eventually moved on to PC gaming, where my love for games only continued to grow. Some of my favourite games include Elden Ring and Sea of Thieves, as well as tactical shooters like Valorant. What fascinates me most about video games is the endless possibilities for storytelling and the unique ways in which music can bring these worlds and stories to life. Combining my passion for gaming with my love for composing music is what drives me to pursue a career in game audio."
                    ]
 
 export type Track = { title: string; src: string }
