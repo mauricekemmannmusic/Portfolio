@@ -23,7 +23,7 @@ export const tracks: Track[] = [
   { title: "Exploring Worlds", src: asset("Exploring Worlds.mp3") },
   { title: "Stowaway – Solar Flare (Rescore)", src: asset("Stowaway solar flare rescore.mp3") },
   { title: "Joining Battle", src: asset("Joining Battle.mp3") },
-  { title: "Space Invaders", src: asset("space invaders Moritz ganzes ding.mp3") },
+  { title: "Space Invaders - game soundtrack", src: asset("space invaders Moritz ganzes ding.mp3") },
   { title: "Time for Inventions", src: asset("Time for inventions.mp3") },
 ]
 
