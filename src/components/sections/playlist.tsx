@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react"
-import { PauseIcon as Pause, PlayIcon as Play, SkipBackIcon as SkipBack, SkipForwardIcon as SkipForward } from "@phosphor-icons/react"
+import {
+  PauseIcon as Pause,
+  PlayIcon as Play,
+  SkipBackIcon as SkipBack,
+  SkipForwardIcon as SkipForward,
+  SpeakerHighIcon,
+  SpeakerLowIcon,
+  SpeakerSlashIcon,
+} from "@phosphor-icons/react"
 
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
@@ -23,8 +31,15 @@ export function Playlist() {
   const [time, setTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [failed, setFailed] = useState(false)
+  const [volume, setVolume] = useState(80)
+  const [muted, setMuted] = useState(false)
 
   const track = tracks[index]
+
+  // Lautstärke aufs Audio-Element übertragen (bleibt beim Trackwechsel erhalten, da dasselbe Element)
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.volume = muted ? 0 : volume / 100
+  }, [volume, muted])
 
   useEffect(() => onOtherAudioStart("playlist", () => audioRef.current?.pause()), [])
 
@@ -92,20 +107,52 @@ export function Playlist() {
             </Button>
           </div>
         </div>
-        <div className="mt-6 flex items-center gap-3 font-mono text-xs text-muted-foreground">
-          <span className="w-10">{formatTime(time)}</span>
-          <Slider
-            value={[time]}
-            max={duration || 1}
-            step={0.1}
-            disabled={!duration}
-            onValueChange={([v]) => {
-              if (audioRef.current) audioRef.current.currentTime = v
-              setTime(v)
-            }}
-            aria-label="Track position"
-          />
-          <span className="w-10 text-right">{formatTime(duration)}</span>
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <div className="flex flex-1 items-center gap-3 font-mono text-xs text-muted-foreground">
+            <span className="w-10">{formatTime(time)}</span>
+            <Slider
+              value={[time]}
+              max={duration || 1}
+              step={0.1}
+              disabled={!duration}
+              onValueChange={([v]) => {
+                if (audioRef.current) audioRef.current.currentTime = v
+                setTime(v)
+              }}
+              aria-label="Track position"
+            />
+            <span className="w-10 text-right">{formatTime(duration)}</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground sm:w-48">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-8 shrink-0"
+              onClick={() => setMuted(!muted)}
+              aria-label={muted ? "Unmute" : "Mute"}
+              aria-pressed={muted}
+            >
+              {muted || volume === 0 ? (
+                <SpeakerSlashIcon />
+              ) : volume < 50 ? (
+                <SpeakerLowIcon />
+              ) : (
+                <SpeakerHighIcon />
+              )}
+            </Button>
+            <Slider
+              value={[muted ? 0 : volume]}
+              min={0}
+              max={100}
+              step={1}
+              onValueChange={([v]) => {
+                setVolume(v)
+                setMuted(false)
+              }}
+              aria-label="Volume"
+            />
+            <span className="w-7 text-right tabular-nums">{muted ? 0 : volume}</span>
+          </div>
         </div>
       </div>
 
@@ -120,7 +167,7 @@ export function Playlist() {
                 className={cn(
                   "flex w-full items-center gap-4 px-2 py-4 text-left transition-colors hover:bg-accent/50",
                   active && "text-foreground",
-                  !active && "text-muted-foreground"
+                  !active && "text-muted-foreground",
                 )}
               >
                 <span className="w-6 font-mono text-sm">
