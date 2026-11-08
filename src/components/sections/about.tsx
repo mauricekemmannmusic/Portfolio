@@ -1,10 +1,14 @@
+import { Section } from "@/components/section"
+import { about } from "@/data/content"
+
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl scroll-mt-14 px-4 py-16">
-      <h2 className="mb-8 text-2xl font-semibold tracking-tight">Über mich</h2>
-      <p className="max-w-2xl text-muted-foreground">
-        Platzhaltertext: Hier kommt deine Biografie hin – Werdegang, Einflüsse, Projekte.
-      </p>
-    </section>
+    <Section id="about" index="01" title="Über mich">
+      <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-muted-foreground">
+        {about.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
+      </div>
+    </Section>
   )
 }

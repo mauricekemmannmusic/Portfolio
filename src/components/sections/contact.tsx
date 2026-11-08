@@ -1,20 +1,41 @@
-import { Mail } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import { Section } from "@/components/section"
+import { contact } from "@/data/content"
 
 export function Contact() {
   return (
-    <section id="kontakt" className="mx-auto max-w-5xl scroll-mt-14 px-4 py-16">
-      <h2 className="mb-8 text-2xl font-semibold tracking-tight">Kontakt</h2>
-      <p className="mb-6 max-w-2xl text-muted-foreground">
-        Für Booking, Kollaborationen oder einfach Hallo sagen.
-      </p>
-      <Button asChild>
-        <a href="mailto:hallo@example.com">
-          <Mail />
-          E-Mail schreiben
-        </a>
-      </Button>
-    </section>
+    <Section id="kontakt" index="04" title="Kontakt">
+      <div className="grid gap-10 sm:grid-cols-2">
+        <div className="space-y-4">
+          <a
+            href={`mailto:${contact.email}`}
+            className="flex items-center gap-3 text-xl font-medium underline-offset-4 hover:underline sm:text-2xl"
+          >
+            <Mail className="size-5 shrink-0" />
+            {contact.email}
+          </a>
+          <p className="flex items-center gap-3 text-muted-foreground">
+            <MapPin className="size-5 shrink-0" />
+            {contact.location}
+          </p>
+        </div>
+        <ul className="divide-y border-y">
+          {contact.links.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between py-3 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+                <ArrowUpRight className="size-4" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
   )
 }

@@ -1,8 +1,12 @@
 import { SiteHeader } from "@/components/site-header"
 import { About } from "@/components/sections/about"
 import { Contact } from "@/components/sections/contact"
-import { Hero } from "@/components/sections/hero"
-import { Music } from "@/components/sections/music"
+import { Intro } from "@/components/sections/intro"
+import { Playlist } from "@/components/sections/playlist"
+import { Portfolio } from "@/components/sections/portfolio"
+import { Portrait } from "@/components/sections/portrait"
+import { Video } from "@/components/sections/video"
+import { site } from "@/data/content"
 
 const year = new Date().getFullYear()
 
@@ -11,14 +15,17 @@ function App() {
     <div className="min-h-svh">
       <SiteHeader />
       <main>
-        <Hero />
-        <Music />
+        <Intro />
         <About />
+        <Playlist />
+        <Portrait />
+        <Portfolio />
         <Contact />
+        <Video />
       </main>
       <footer className="border-t">
         <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted-foreground">
-          © {year} Momo
+          © {year} {site.name}
         </div>
       </footer>
     </div>
