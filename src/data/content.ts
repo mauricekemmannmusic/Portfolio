@@ -6,13 +6,13 @@ const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURICo
 
 export const site = {
   name: "Maurice Kemmann",
-  role: "Composer · Game & Film Music",
+  role: "Composer · Film, Games & Media",
   affiliation: "Student at musicube academy",
   tagline: "Composer for Film, Games and Media",
 }
 
 export const about = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "My name is Maurice Kemmann, I am born in 2005 and im from a small town in western germany. I started making music at the end of 2023 when I had no idea what to do with my life. I started out with makind EDM beats and because I have always loved how to train your dragon and its score i soon started to get into cinematic music.",
   "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 ]
 
