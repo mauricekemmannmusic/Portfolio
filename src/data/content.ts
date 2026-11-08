@@ -21,9 +21,9 @@ export type Track = { title: string; src: string }
 export const tracks: Track[] = [
   { title: "Colorful Life", src: asset("Colorful Life Maurice Kemmann.mp3") },
   { title: "Exploring Worlds", src: asset("Exploring Worlds.mp3") },
+  { title: "Stowaway – Solar Flare (Rescore)", src: asset("Stowaway solar flare rescore.mp3") },
   { title: "Joining Battle", src: asset("Joining Battle.mp3") },
   { title: "Space Invaders", src: asset("space invaders Moritz ganzes ding.mp3") },
-  { title: "Stowaway – Solar Flare (Rescore)", src: asset("Stowaway solar flare rescore.mp3") },
   { title: "Time for Inventions", src: asset("Time for inventions.mp3") },
 ]
 
@@ -33,12 +33,12 @@ export const portrait = {
 }
 
 export const contact = {
-  email: "kontakt@example.com",
+  email: "kemmannmaurice@gmail.com",
   location: "Germany",
   links: [
-    { label: "YouTube", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "SoundCloud", href: "#" },
+    { label: "YouTube", href: "https://www.youtube.com/@maurice_kemmann_music" },
+    { label: "Instagram", href: "https://www.instagram.com/maurice_kemmann_music/" },
+    { label: "SoundCloud", href: "https://soundcloud.com/maurice_kemmann" },
   ],
 }
 
@@ -52,8 +52,8 @@ export const heroVideo = {
 // Impressum (Angaben gemäß § 5 DDG). Platzhalter in {{…}} durch echte Daten ersetzen.
 export const imprint = {
   name: "Maurice Kemmann",
-  street: "{{Street and house number}}",
-  city: "{{Postal code and city}}",
+  street: "zum Marschfeld 17",
+  city: "46459 Rees",
   country: "Germany",
   email: contact.email,
 }
