@@ -2,10 +2,11 @@
 // Mediendateien liegen in public/assets/ und werden über asset("<datei>") referenziert.
 
 // Berücksichtigt den Unterpfad auf GitHub Pages (/PortfolioMomo/)
-const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${file}`
+const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURIComponent(file)}`
 
 export const site = {
   name: "Maurice Kemmann",
+  role: "Komponist · Game & Film Music",
   tagline: "Ich komponiere Musik für Games, Filme und Welten, die man hören kann.",
 }
 
@@ -17,12 +18,12 @@ export const about = [
 export type Track = { title: string; src: string }
 
 export const tracks: Track[] = [
-  { title: "Colorful Life", src: asset("colorful-life.mp3") },
-  { title: "Exploring Worlds", src: asset("exploring-worlds.mp3") },
-  { title: "Joining Battle", src: asset("joining-battle.mp3") },
-  { title: "Space Invaders", src: asset("space-invaders.mp3") },
-  { title: "Stowaway – Solar Flare (Rescore)", src: asset("stowaway-solar-flare-rescore.mp3") },
-  { title: "Time for Inventions", src: asset("time-for-inventions.mp3") },
+  { title: "Colorful Life", src: asset("Colorful Life Maurice Kemmann.mp3") },
+  { title: "Exploring Worlds", src: asset("Exploring Worlds.mp3") },
+  { title: "Joining Battle", src: asset("Joining Battle.mp3") },
+  { title: "Space Invaders", src: asset("space invaders Moritz ganzes ding.mp3") },
+  { title: "Stowaway – Solar Flare (Rescore)", src: asset("Stowaway solar flare rescore.mp3") },
+  { title: "Time for Inventions", src: asset("Time for inventions.mp3") },
 ]
 
 export const portrait = {
