@@ -7,8 +7,8 @@ const asset = (file: string) => `${import.meta.env.BASE_URL}assets/${encodeURICo
 export const site = {
   name: "Maurice Kemmann",
   role: "Composer · Game & Film Music",
-  affiliation: "Student at Music Cube Academy",
-  tagline: "I compose music for games, films and worlds you can hear.",
+  affiliation: "Student at musicube academy",
+  tagline: "Composer for Film, Games and Media",
 }
 
 export const about = [
